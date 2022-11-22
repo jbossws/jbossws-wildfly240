@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ JBoss, Home of Professional Open Source.
+  ~ Copyright 2019, Red Hat, Inc., and individual contributors
+  ~ as indicated by the @author tags. See the copyright.txt file in the
+  ~ distribution for a full listing of individual contributors.
+  ~
+  ~ This is free software; you can redistribute it and/or modify it
+  ~ under the terms of the GNU Lesser General Public License as
+  ~ published by the Free Software Foundation; either version 2.1 of
+  ~ the License, or (at your option) any later version.
+  ~
+  ~ This software is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+  ~ Lesser General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU Lesser General Public
+  ~ License along with this software; if not, write to the Free
+  ~ Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+  ~ 02110-1301 USA, or see the FSF site: http://www.fsf.org.
+  -->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.jboss.ws</groupId>
+        <artifactId>jbossws-parent</artifactId>
+        <version>1.4.4.Final</version>
+    </parent>
+
+    <name>JBossWS WildFly 24.0.0.Final Integration Parent</name>
+    <description>JBossWS WildFly 24.0.0.Final Integration Parent</description>
+    <groupId>org.jboss.ws</groupId>
+    <artifactId>jbossws-wildfly2400-parent</artifactId>
+    <version>5.4.6-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <scm>
+        <connection>scm:git:https://github.com/jbossws/jbossws-wildfly240.git</connection>
+        <developerConnection>scm:git:https://github.com/jbossws/jbossws-wildfly240.git</developerConnection>
+        <url>https://github.com/jbossws/jbossws-wildfly240</url>
+        <tag>HEAD</tag>
+    </scm>
+
+    <modules>
+        <module>server-integration</module>
+        <module>tests-integration</module>
+    </modules>
+
+    <properties>
+        <jbossws.api.version>1.1.2.Final</jbossws.api.version>
+        <jbossws.spi.version>3.3.1.Final</jbossws.spi.version>
+        <jbossws.common.version>3.3.3.Final</jbossws.common.version>
+        <jboss.msc.version>1.4.12.Final</jboss.msc.version>
+        <wildfly.version>24.0.1.Final</wildfly.version>
+        <wildfly.client.config.version>1.0.1.Final</wildfly.client.config.version>
+        <wildfly.naming-client.version>1.0.14.Final</wildfly.naming-client.version>
+        <wildfly.core.version>16.0.1.Final</wildfly.core.version>
+        <wildfly.elytron.version>1.16.1.Final</wildfly.elytron.version>
+        <xnio.version>3.8.4.Final</xnio.version>
+        <netty.version>4.1.66.Final</netty.version>
+        <artemis.version>2.16.0</artemis.version>
+        <remoting.version>5.0.23.Final</remoting.version>
+        <remoting-jmx.version>3.0.4.Final</remoting-jmx.version>
+        <xerces.version>2.12.0.SP03</xerces.version>
+        <jboss.jaxws.api.version>2.0.0.Final</jboss.jaxws.api.version>
+        <jboss.logging.tools.version>2.2.1.Final</jboss.logging.tools.version>
+        <jboss.logging.version>3.4.2.Final</jboss.logging.version>
+        <jakarta.json-api.version>1.1.6</jakarta.json-api.version>
+        <junit.version>4.13.1</junit.version>
+        <mockit.version>3.10.0</mockit.version>
+        <wildfly.jms.version>16.0.1</wildfly.jms.version>
+        <wildfly.common.version>1.5.4.Final</wildfly.common.version>
+        <jboss.marshalling-river.version>2.0.12.Final</jboss.marshalling-river.version>
+        <jakarta.mail.version>1.6.6</jakarta.mail.version>
+        <jakarta.jws-api.version>2.1.0</jakarta.jws-api.version>
+        <jboss.ejb-client.version>4.0.41.Final</jboss.ejb-client.version>
+        <jboss.ejb3-ext-api.version>2.3.0.Final</jboss.ejb3-ext-api.version>
+        <org.javassist.version>3.23.2-GA</org.javassist.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.mockito</groupId>
+                <artifactId>mockito-core</artifactId>
+                <version>${mockit.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.msc</groupId>
+                <artifactId>jboss-msc</artifactId>
+                <version>${jboss.msc.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.wildfly.security</groupId>
+                <artifactId>wildfly-elytron</artifactId>
+                <version>${wildfly.elytron.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.wildfly.core</groupId>
+                <artifactId>wildfly-jmx</artifactId>
+                <version>${wildfly.core.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.wildfly.core</groupId>
+                <artifactId>wildfly-server</artifactId>
+                <version>${wildfly.core.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.wildfly</groupId>
+                <artifactId>wildfly-ee</artifactId>
+                <version>${wildfly.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.wildfly</groupId>
+                <artifactId>wildfly-ejb3</artifactId>
+                <version>${wildfly.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.wildfly</groupId>
+                <artifactId>wildfly-security-plugins</artifactId>
+                <version>${wildfly.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.wildfly</groupId>
+                <artifactId>wildfly-undertow</artifactId>
+                <version>${wildfly.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.wildfly</groupId>
+                <artifactId>wildfly-web-common</artifactId>
+                <version>${wildfly.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.ws</groupId>
+                <artifactId>jbossws-api</artifactId>
+                <version>${jbossws.api.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.logging</groupId>
+                <artifactId>jboss-logging</artifactId>
+                <version>${jboss.logging.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.logging</groupId>
+                <artifactId>jboss-logging-annotations</artifactId>
+                <!-- This is a compile-time dependency of this project, but is not needed at compile or runtime by other
+                      projects that depend on this project.-->
+                <version>${jboss.logging.tools.version}</version>
+                <scope>provided</scope>
+                <optional>true</optional>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.logging</groupId>
+                <artifactId>jboss-logging-processor</artifactId>
+                <!-- This is a compile-time dependency of this project, but is not needed at compile or runtime by other
+                      projects that depend on this project.-->
+                <version>${jboss.logging.tools.version}</version>
+                <scope>provided</scope>
+                <optional>true</optional>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.ws</groupId>
+                <artifactId>jbossws-common</artifactId>
+                <version>${jbossws.common.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.ws</groupId>
+                <artifactId>jbossws-spi</artifactId>
+                <version>${jbossws.spi.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.wildfly.core</groupId>
+                <artifactId>wildfly-subsystem-test</artifactId>
+                <version>${wildfly.core.version}</version>
+                <type>pom</type>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.spec.javax.xml.ws</groupId>
+                <artifactId>jboss-jaxws-api_2.3_spec</artifactId>
+                <version>${jboss.jaxws.api.version}</version>
+            </dependency>
+            <dependency> <!-- Required by activemq... -->
+                <groupId>jakarta.json</groupId>
+                <artifactId>jakarta.json-api</artifactId>
+                <version>${jakarta.json-api.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.wildfly.core</groupId>
+                <artifactId>wildfly-controller-client</artifactId>
+                <version>${wildfly.core.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.wildfly.common</groupId>
+                <artifactId>wildfly-common</artifactId>
+                <version>${wildfly.common.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.wildfly</groupId>
+                <artifactId>wildfly-security</artifactId>
+                <version>${wildfly.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.marshalling</groupId>
+                <artifactId>jboss-marshalling-river</artifactId>
+                <version>${jboss.marshalling-river.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.sun.mail</groupId>
+                <artifactId>jakarta.mail</artifactId>
+                <version>${jakarta.mail.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss</groupId>
+                <artifactId>jboss-ejb-client</artifactId>
+                <version>${jboss.ejb-client.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.ejb3</groupId>
+                <artifactId>jboss-ejb3-ext-api</artifactId>
+                <version>${jboss.ejb3-ext-api.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.javassist</groupId>
+                <artifactId>javassist</artifactId>
+                <version>${org.javassist.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>xerces</groupId>
+                <artifactId>xercesImpl</artifactId>
+                <version>${xerces.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.remotingjmx</groupId>
+                <artifactId>remoting-jmx</artifactId>
+                <version>${remoting-jmx.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.remoting</groupId>
+                <artifactId>jboss-remoting</artifactId>
+                <version>${remoting.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.activemq</groupId>
+                <artifactId>artemis-jms-client</artifactId>
+                <version>${artemis.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.activemq</groupId>
+                <artifactId>artemis-commons</artifactId>
+                <version>${artemis.version}</version>
+            </dependency>
+            <dependency> <!-- Required for activemq compatibility -->
+                <groupId>io.netty</groupId>
+                <artifactId>netty-all</artifactId>
+                <version>${netty.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.xnio</groupId>
+                <artifactId>xnio-api</artifactId>
+                <version>${xnio.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.xnio</groupId>
+                <artifactId>xnio-nio</artifactId>
+                <version>${xnio.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.wildfly.client</groupId>
+                <artifactId>wildfly-client-config</artifactId>
+                <version>${wildfly.client.config.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.wildfly</groupId>
+                <artifactId>wildfly-naming-client</artifactId>
+                <version>${wildfly.naming-client.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.wildfly</groupId>
+                <artifactId>wildfly-client-properties</artifactId>
+                <version>${wildfly.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>jakarta.jws</groupId>
+                <artifactId>jakarta.jws-api</artifactId>
+                <version>${jakarta.jws-api.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+</project>
