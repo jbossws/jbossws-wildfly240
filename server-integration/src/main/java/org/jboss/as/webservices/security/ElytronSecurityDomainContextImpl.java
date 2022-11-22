@@ -57,6 +57,10 @@ public class ElytronSecurityDomainContextImpl implements SecurityDomainContext {
     public String getSecurityDomain() {
         return this.securityDomain.toString();
     }
+    @Override
+    public SecurityDomain getElytronSecurityDomain() {
+        return this.securityDomain;
+    }
     //TODO:refactor/deprecate this after elytron?
     @Override
     public Set<Principal> getUserRoles(Principal principal) {
