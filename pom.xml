@@ -34,14 +34,14 @@
     <description>JBossWS WildFly 24.0.0.Final Integration Parent</description>
     <groupId>org.jboss.ws</groupId>
     <artifactId>jbossws-wildfly2400-parent</artifactId>
-    <version>5.4.6.Final</version>
+    <version>5.4.7-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <scm>
         <connection>scm:git:https://github.com/jbossws/jbossws-wildfly240.git</connection>
         <developerConnection>scm:git:https://github.com/jbossws/jbossws-wildfly240.git</developerConnection>
         <url>https://github.com/jbossws/jbossws-wildfly240</url>
-        <tag>jbossws-wildfly2400-5.4.6.Final</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <modules>
